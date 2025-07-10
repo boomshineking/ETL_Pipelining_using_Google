@@ -1,0 +1,108 @@
+table taxi_daily_summary
+	lineageTag: 64a337de-c295-4d89-b597-b61df50b492e
+
+	column trip_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 52a66fc4-584f-435a-b968-069679f7d522
+		summarizeBy: none
+		sourceColumn: trip_date
+
+		variation Variation
+			isDefault
+			relationship: 4e804270-ce59-48b0-a813-38cfd6a6a6c7
+			defaultHierarchy: LocalDateTable_7413976d-a286-410f-8914-fa63854b9108.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column total_trips
+		dataType: int64
+		formatString: 0
+		lineageTag: 10d98613-d863-45e8-b96c-0e7984f30db6
+		summarizeBy: sum
+		sourceColumn: total_trips
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"taxi_daily_summary","TableItemName":"total_trips (bins)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column total_fare_usd
+		dataType: double
+		lineageTag: d8934ca5-ad12-4f74-b990-3e8e9a1cd1d8
+		summarizeBy: sum
+		sourceColumn: total_fare_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_tips_usd
+		dataType: double
+		lineageTag: 604569f3-6b54-4b5b-8db1-0c5a3e5ff803
+		summarizeBy: sum
+		sourceColumn: total_tips_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'total_trips (bins)' =
+			VAR __Count = 7
+			
+			VAR __Min = MIN('taxi_daily_summary'[total_trips])
+			
+			VAR __Max = MAX('taxi_daily_summary'[total_trips])
+			
+			VAR __Difference = (__Max - __Min)
+			
+			VAR __Size = IF(__Difference > 0, __Difference / __Count, 1)
+			
+			VAR __BinNumber = INT(('taxi_daily_summary'[total_trips] - __Min) / __Size)
+			
+			RETURN
+				IF(
+					ISBLANK('taxi_daily_summary'[total_trips]),
+					BLANK(),
+					__Min + (MIN(__BinNumber, __Count - 1) * __Size)
+				)
+		lineageTag: 5f29c762-9ef3-4df9-8795-a55c563e1e7a
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "taxi_daily_summary"
+				          }
+				        },
+				        "Property": "total_trips"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"taxi_daily_summary"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"total_trips"}}],"BinItem":{"Expression":{"Member":{"Expression":{"Discretize":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"total_trips"}},"Count":7}},"Member":"Min"}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition taxi_daily_summary = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database(),
+				    #"my-etlproject" = Source{[Name="my-etlproject"]}[Data],
+				    employee_Schema = #"my-etlproject"{[Name="employee",Kind="Schema"]}[Data],
+				    taxi_daily_summary_Table = employee_Schema{[Name="taxi_daily_summary",Kind="Table"]}[Data]
+				in
+				    taxi_daily_summary_Table
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,28 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["taxi_daily_summary","taxi_hourly_stats","taxi_zone_performance","yellow_tripdata_2023_jan","tip_percentage_distribution"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table taxi_daily_summary
+ref table DateTableTemplate_617a76b4-31c8-4b8d-9d99-e90a61579638
+ref table LocalDateTable_7413976d-a286-410f-8914-fa63854b9108
+ref table taxi_hourly_stats
+ref table taxi_zone_performance
+ref table yellow_tripdata_2023_jan
+ref table LocalDateTable_1985dc4e-0562-428e-81f2-198ba2f1f22a
+ref table LocalDateTable_b8ae9b05-3cd4-4271-a94d-6d01bcd419d6
+ref table tip_percentage_distribution
+
+ref cultureInfo en-GB
+

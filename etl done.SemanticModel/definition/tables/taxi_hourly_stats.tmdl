@@ -1,0 +1,148 @@
+table taxi_hourly_stats
+	lineageTag: 381a62d1-117c-4bb6-bc29-86239a39e28d
+
+	column trip_hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b210c4c-d3ac-4483-98cd-403d23de63ae
+		summarizeBy: sum
+		sourceColumn: trip_hour
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"taxi_hourly_stats","TableItemName":"trip_hour (bins)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column trip_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 478a549f-a83c-4c55-828e-e79da6effcd7
+		summarizeBy: sum
+		sourceColumn: trip_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"taxi_hourly_stats","TableItemName":"trip_count (bins)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column avg_distance_miles
+		dataType: double
+		lineageTag: 7de04b3c-8da9-4e0e-a355-d8f1602b5832
+		summarizeBy: sum
+		sourceColumn: avg_distance_miles
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_revenue_usd
+		dataType: double
+		lineageTag: dd0a8525-e70c-42f9-a0d2-02354c102583
+		summarizeBy: sum
+		sourceColumn: total_revenue_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'trip_hour (bins)' =
+			VAR __Count = 6
+			
+			VAR __Min = MIN('taxi_hourly_stats'[trip_hour])
+			
+			VAR __Max = MAX('taxi_hourly_stats'[trip_hour])
+			
+			VAR __Difference = (__Max - __Min)
+			
+			VAR __Size = IF(__Difference > 0, __Difference / __Count, 1)
+			
+			VAR __BinNumber = INT(('taxi_hourly_stats'[trip_hour] - __Min) / __Size)
+			
+			RETURN
+				IF(
+					ISBLANK('taxi_hourly_stats'[trip_hour]),
+					BLANK(),
+					__Min + (MIN(__BinNumber, __Count - 1) * __Size)
+				)
+		lineageTag: 0dbf6e35-53f6-48f0-bd96-c95d840ecffd
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "taxi_hourly_stats"
+				          }
+				        },
+				        "Property": "trip_hour"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"taxi_hourly_stats"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"trip_hour"}}],"BinItem":{"Expression":{"Member":{"Expression":{"Discretize":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"trip_hour"}},"Count":6}},"Member":"Min"}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'trip_count (bins)' =
+			VAR __Count = 6
+			
+			VAR __Min = MIN('taxi_hourly_stats'[trip_count])
+			
+			VAR __Max = MAX('taxi_hourly_stats'[trip_count])
+			
+			VAR __Difference = (__Max - __Min)
+			
+			VAR __Size = IF(__Difference > 0, __Difference / __Count, 1)
+			
+			VAR __BinNumber = INT(('taxi_hourly_stats'[trip_count] - __Min) / __Size)
+			
+			RETURN
+				IF(
+					ISBLANK('taxi_hourly_stats'[trip_count]),
+					BLANK(),
+					__Min + (MIN(__BinNumber, __Count - 1) * __Size)
+				)
+		lineageTag: 0d21e07a-5691-466d-9c2d-29593d826e26
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "taxi_hourly_stats"
+				          }
+				        },
+				        "Property": "trip_count"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"taxi_hourly_stats"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"trip_count"}}],"BinItem":{"Expression":{"Member":{"Expression":{"Discretize":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"trip_count"}},"Count":6}},"Member":"Min"}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition taxi_hourly_stats = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database(),
+				    #"my-etlproject" = Source{[Name="my-etlproject"]}[Data],
+				    employee_Schema = #"my-etlproject"{[Name="employee",Kind="Schema"]}[Data],
+				    taxi_hourly_stats_Table = employee_Schema{[Name="taxi_hourly_stats",Kind="Table"]}[Data]
+				in
+				    taxi_hourly_stats_Table
+
+	annotation PBI_ResultType = Table
+

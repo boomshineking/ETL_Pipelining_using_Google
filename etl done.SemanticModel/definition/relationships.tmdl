@@ -1,0 +1,15 @@
+relationship 4e804270-ce59-48b0-a813-38cfd6a6a6c7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: taxi_daily_summary.trip_date
+	toColumn: LocalDateTable_7413976d-a286-410f-8914-fa63854b9108.Date
+
+relationship 5df5df41-2de7-4d39-872c-7e76ed4989bd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: yellow_tripdata_2023_jan.tpep_pickup_datetime
+	toColumn: LocalDateTable_1985dc4e-0562-428e-81f2-198ba2f1f22a.Date
+
+relationship 4be3f2f6-8e78-48cc-913c-c030c93c5cdb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: yellow_tripdata_2023_jan.tpep_dropoff_datetime
+	toColumn: LocalDateTable_b8ae9b05-3cd4-4271-a94d-6d01bcd419d6.Date
+

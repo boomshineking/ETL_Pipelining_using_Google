@@ -1,0 +1,87 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.65\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "1f466e39a016c4a4d534",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0ad589df0d9e5ca8825e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":11.334598355471222,\"z\":0,\"width\":639.595192915876,\"height\":272.0303605313093,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"taxi_hourly_stats.trip_count (bins)\",\"active\":true}],\"Y\":[{\"queryRef\":\"Avg(taxi_hourly_stats.trip_hour (bins))\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"taxi_hourly_stats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"trip_count (bins)\"},\"Name\":\"taxi_hourly_stats.trip_count (bins)\",\"NativeReferenceName\":\"Sum of trip_count (bins)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"trip_hour (bins)\"}},\"Function\":1},\"Name\":\"Avg(taxi_hourly_stats.trip_hour (bins))\",\"NativeReferenceName\":\"Average of trip_hour (bins)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"trip_hour (bins)\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Driver Revenue by Average Daily Working Hours Over Company Lifecycle'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 272.03,
+          "width": 639.60,
+          "x": 0.00,
+          "y": 11.33,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"34827e680e8ec6003387\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1050.8791903858319,\"y\":284.9841872232764,\"z\":4000,\"width\":229.9304237824162,\"height\":435.57242251739405,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(taxi_zone_performance.trips_from_zone)\"}],\"Rows\":[{\"queryRef\":\"taxi_zone_performance.pickup_zone_id\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t1\",\"Entity\":\"taxi_zone_performance\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t1\"}},\"Property\":\"trips_from_zone\"}},\"Function\":0},\"Name\":\"Sum(taxi_zone_performance.trips_from_zone)\",\"NativeReferenceName\":\"Total trips in each zone\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t1\"}},\"Property\":\"pickup_zone_id\"},\"Name\":\"taxi_zone_performance.pickup_zone_id\",\"NativeReferenceName\":\"Zone_ID\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t1\"}},\"Property\":\"trips_from_zone\"}},\"Function\":0}}}]},\"columnProperties\":{\"taxi_zone_performance.pickup_zone_id\":{\"displayName\":\"Zone_ID\"},\"Sum(taxi_zone_performance.trips_from_zone)\":{\"displayName\":\"Total trips in each zone\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"subTotals\":[{\"properties\":{\"rowSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"columnSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 435.57,
+          "width": 229.93,
+          "x": 1050.88,
+          "y": 284.98,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"ab0f87f377e3810a3016\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":284.44444444444446,\"z\":5000,\"width\":398.88888888888886,\"height\":435.55555555555554,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(taxi_daily_summary.total_tips_usd)\"},{\"queryRef\":\"Sum(taxi_daily_summary.total_trips)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"taxi_daily_summary\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"total_tips_usd\"}},\"Function\":0},\"Name\":\"Sum(taxi_daily_summary.total_tips_usd)\",\"NativeReferenceName\":\"Sum of total_tips_usd\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"total_trips\"}},\"Function\":0},\"Name\":\"Sum(taxi_daily_summary.total_trips)\",\"NativeReferenceName\":\"Sum of total_trips\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"total_tips_usd\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Average Trips to tips ratio'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 435.56,
+          "width": 398.89,
+          "x": 640.00,
+          "y": 284.44,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"bd521c90200727630d1d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":566.6666666666666,\"z\":2000,\"width\":718.8888888888889,\"height\":153.33333333333334,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.total_amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"y\",\"Entity\":\"yellow_tripdata_2023_jan\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"total_amount\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.total_amount)\",\"NativeReferenceName\":\"Sum of total_amount\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"total_amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Miles to Trip profit overall the companies lifecycle'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 153.33,
+          "width": 718.89,
+          "x": 0.00,
+          "y": 566.67,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"e34e4ab2bad706134d23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":284,\"z\":1000,\"width\":630,\"height\":282,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(taxi_hourly_stats.total_revenue_usd)\"},{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.extra)\"},{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.tip_amount)\"},{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.tolls_amount)\"},{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.improvement_surcharge)\"},{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.congestion_surcharge)\"},{\"queryRef\":\"Sum(yellow_tripdata_2023_jan.airport_fee)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"taxi_hourly_stats\",\"Type\":0},{\"Name\":\"y\",\"Entity\":\"yellow_tripdata_2023_jan\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"total_revenue_usd\"}},\"Function\":0},\"Name\":\"Sum(taxi_hourly_stats.total_revenue_usd)\",\"NativeReferenceName\":\"Sum of total_revenue_usd\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"extra\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.extra)\",\"NativeReferenceName\":\"Sum of extra\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"tip_amount\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.tip_amount)\",\"NativeReferenceName\":\"Sum of tip_amount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"tolls_amount\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.tolls_amount)\",\"NativeReferenceName\":\"Sum of tolls_amount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"improvement_surcharge\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.improvement_surcharge)\",\"NativeReferenceName\":\"Sum of improvement_surcharge\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"congestion_surcharge\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.congestion_surcharge)\",\"NativeReferenceName\":\"Sum of congestion_surcharge\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"y\"}},\"Property\":\"airport_fee\"}},\"Function\":0},\"Name\":\"Sum(yellow_tripdata_2023_jan.airport_fee)\",\"NativeReferenceName\":\"Sum of airport_fee\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"total_revenue_usd\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Revenue breakdown'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 282.00,
+          "width": 630.00,
+          "x": 10.00,
+          "y": 284.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"f8ef20c9941c1aa4dd2a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":12,\"width\":630,\"height\":272,\"z\":3000,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"taxi_daily_summary.trip_date.Variation.Date Hierarchy.Month\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(taxi_daily_summary.total_trips)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"taxi_daily_summary\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Name\":\"Variation\",\"Property\":\"trip_date\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"taxi_daily_summary.trip_date.Variation.Date Hierarchy.Month\",\"NativeReferenceName\":\"trip_date Month\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"total_trips\"}},\"Function\":0},\"Name\":\"Sum(taxi_daily_summary.total_trips)\",\"NativeReferenceName\":\"Sum of total_trips\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Highest active trips'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 272.00,
+          "width": 630.00,
+          "x": 640.00,
+          "y": 12.00,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

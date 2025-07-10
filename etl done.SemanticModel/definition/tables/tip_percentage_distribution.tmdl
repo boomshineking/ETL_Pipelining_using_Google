@@ -1,0 +1,43 @@
+table tip_percentage_distribution
+	lineageTag: 5e625084-6166-48f8-b83f-1bddb8b3f8d4
+
+	column tip_bucket
+		dataType: string
+		lineageTag: 98927461-75df-498b-b998-88c1e7cb1637
+		summarizeBy: none
+		sourceColumn: tip_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column trip_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c190371-f4ce-4f74-8cd2-8bbd5a7ba7d2
+		summarizeBy: sum
+		sourceColumn: trip_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_tip_pct
+		dataType: double
+		lineageTag: 6bc979de-c5e9-4a72-b238-d9648960ae48
+		summarizeBy: sum
+		sourceColumn: avg_tip_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition tip_percentage_distribution = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database(),
+				    #"my-etlproject" = Source{[Name="my-etlproject"]}[Data],
+				    employee_Schema = #"my-etlproject"{[Name="employee",Kind="Schema"]}[Data],
+				    tip_percentage_distribution_Table = employee_Schema{[Name="tip_percentage_distribution",Kind="Table"]}[Data]
+				in
+				    tip_percentage_distribution_Table
+
+	annotation PBI_ResultType = Table
+
