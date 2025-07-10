@@ -178,4 +178,5 @@ Tick the tables you want, then load into Power Query for optional shaping.
 
 6.Table of total trips to each zone ID's
 
-<img width="592" height="332" alt="image" src="https://github.com/user-attachments/assets/84de33e2-87e0-433c-8ee8-bd62aa332919" />
+<img width="588" height="326" alt="image" src="https://github.com/user-attachments/assets/9b8f7d5a-a3a7-4715-a038-e855a5fbd98d" />
+
