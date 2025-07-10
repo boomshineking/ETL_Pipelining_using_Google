@@ -31,8 +31,11 @@ This project builds an end-to-end data pipeline for NYC taxi trip data. It downl
 
 ---
 
-## Screenshots
+## Screenshots of the process in GCP
 
+
+**pipeline screenshot**
+<img width="1912" height="986" alt="Screenshot 2025-07-08 124410" src="https://github.com/user-attachments/assets/35f2060c-6678-4b22-9008-d2bca806bd32" />
 
 
 ---
