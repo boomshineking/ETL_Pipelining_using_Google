@@ -166,7 +166,7 @@ Tick the tables you want, then load into Power Query for optional shaping.
 
 4.3 Final Report
 
-Use charts & maps to visualize:
+Ratio of Hours to trip completed by the taxi fleet within
 
 Hourly trip counts and revenue
 
@@ -176,3 +176,4 @@ Top pickup zones by activity
 
 Tip percentage distribution
 
+<img width="592" height="332" alt="image" src="https://github.com/user-attachments/assets/84de33e2-87e0-433c-8ee8-bd62aa332919" />
