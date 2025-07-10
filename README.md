@@ -34,9 +34,10 @@ This project builds an end-to-end data pipeline for NYC taxi trip data. It downl
 ## Screenshots of the process in GCP
 
 
-**pipeline screenshot**
+**Active coonnection pipeline on cloud fuison screenshot**
 <img width="1912" height="986" alt="Screenshot 2025-07-08 124410" src="https://github.com/user-attachments/assets/35f2060c-6678-4b22-9008-d2bca806bd32" />
-
+**Big Query screenshot**
+<img width="1530" height="1023" alt="newtables" src="https://github.com/user-attachments/assets/217bcfe1-706e-4bd3-8d9c-8de56e8cfce0" />
 
 ---
 
