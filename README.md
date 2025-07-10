@@ -58,6 +58,7 @@ Table: yellow_tripdata_2023_jan
 Write disposition: WRITE_TRUNCATE
 
 3. BigQuery Data Processing
+
 3.1 Hourly Trip Statistics
 
 sql
