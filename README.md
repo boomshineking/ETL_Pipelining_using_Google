@@ -1,10 +1,17 @@
 # NYC Taxi Data Pipeline README
 
+
+
 ## Overview
 
 This project builds an end-to-end data pipeline for NYC taxi trip data. It downloads Parquet files, converts them to CSV, stages them in Google Cloud Storage, processes and transforms them with Cloud Data Fusion (using Wrangler), loads the results into BigQuery, then creates derived tables for analytics.
 
 ---
+
+
+
+**workflow**
+![WhatsApp Image 2025-07-10 at 17 03 47_52521642](https://github.com/user-attachments/assets/04af6993-52dc-42d5-8aae-6e5f2d96251b)
 
 ## Tech Stack
 
