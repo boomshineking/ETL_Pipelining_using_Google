@@ -26,21 +26,7 @@ This project builds an end-to-end data pipeline for NYC taxi trip data. It downl
 
 ## Screenshots
 
-Place your exported pipeline and UI screenshots under a `screenshots/` folder and reference them here:
 
-| Filename                                   | Description                                           |
-|--------------------------------------------|-------------------------------------------------------|
-| `01-csv-parse-options.png`                 | CSV Parsing Options in GCSFile source                 |
-| `02-pipeline-overview.png`                 | ETLpipeliner flow: GCSFile → Wrangler → BigQuery      |
-| `03-wrangler-recipe.png`                   | Wrangler recipe steps                                 |
-| `04-bq-sink-config.png`                    | BigQuery sink configuration in Cloud Data Fusion      |
-| `05-bq-sql-hourly-stats.png`               | BigQuery SQL: Hourly trip statistics                  |
-| `06-bq-sql-daily-summary.png`              | BigQuery SQL: Daily revenue & trip volume             |
-| `07-bq-sql-zone-performance.png`           | BigQuery SQL: Pickup zone performance                 |
-| `08-bq-sql-tip-percentage.png`             | BigQuery SQL: Tip percentage distribution             |
-| `09-powerbi-get-data.png`                  | Power BI “Get Data → Google BigQuery” dialog          |
-| `10-powerbi-navigator.png`                 | Power BI Navigator selecting tables                   |
-| `11-powerbi-report.png`                    | Final Power BI visualization (charts & map)           |
 
 ---
 
