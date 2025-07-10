@@ -181,5 +181,6 @@ Tick the tables you want, then load into Power Query for optional shaping.
 **Big Query screenshot**
 <img width="1530" height="1023" alt="newtables" src="https://github.com/user-attachments/assets/217bcfe1-706e-4bd3-8d9c-8de56e8cfce0" />
 
+'''Power BI result'''
 <img width="588" height="326" alt="image" src="https://github.com/user-attachments/assets/9b8f7d5a-a3a7-4715-a038-e855a5fbd98d" />
 
