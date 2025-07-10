@@ -176,23 +176,3 @@ Top pickup zones by activity
 
 Tip percentage distribution
 
-5. Folder Structure
-.
-├── screenshots/
-│   ├── 01-csv-parse-options.png
-│   ├── 02-pipeline-overview.png
-│   ├── 03-wrangler-recipe.png
-│   ├── 04-bq-sink-config.png
-│   ├── 05-bq-sql-hourly-stats.png
-│   ├── 06-bq-sql-daily-summary.png
-│   ├── 07-bq-sql-zone-performance.png
-│   ├── 08-bq-sql-tip-percentage.png
-│   ├── 09-powerbi-get-data.png
-│   ├── 10-powerbi-navigator.png
-│   └── 11-powerbi-report.png
-├── extract.py
-├── README.md
-├── credentials.json
-└── data/
-    ├── yellow_tripdata_2023-01.parquet
-    └── yellow_tripdata_2023-01.csv
