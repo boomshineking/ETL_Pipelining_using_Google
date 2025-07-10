@@ -178,6 +178,9 @@ Tick the tables you want, then load into Power Query for optional shaping.
 **Active coonnection pipeline on cloud fuison screenshot**
 <img width="1912" height="986" alt="Screenshot 2025-07-08 124410" src="https://github.com/user-attachments/assets/35f2060c-6678-4b22-9008-d2bca806bd32" />
 
+**CloudFusion Dataset**
+<img width="951" height="1024" alt="Screenshot 2025-07-08 101256" src="https://github.com/user-attachments/assets/28b026ac-059b-4755-9781-46619f99b321" />
+
 **Big Query screenshot**
 <img width="1530" height="1023" alt="newtables" src="https://github.com/user-attachments/assets/217bcfe1-706e-4bd3-8d9c-8de56e8cfce0" />
 
